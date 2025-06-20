@@ -8,7 +8,7 @@ app.use(cors({ origin: "http://localhost:5173" }))
 app.use(express.json()) // 👈 body parser
 app.use("/api/notes", require("./routes/todo.routes"))
 
-mongoose.connect(process.env.MONGODB_URL)
+mongoose.connect(process.env.MONGO_URL)
 mongoose.connection.once("open", () => {
     console.log("db connected")
     app.listen((process.env.MONGODB_URL), console.log("server running on 5000"))
